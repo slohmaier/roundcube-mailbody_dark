@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * mailbody_dark — optional global defaults.
+ *
+ * Users override these per-account in Settings > Preferences > Mailbox View.
+ * Copy this file to config.inc.php (or set the keys in your main Roundcube
+ * config) to change the site-wide defaults.
+ */
+
+// Default rendering mode for the mail body:
+//   'off' | 'dark' | 'light' | 'auto' (follow Roundcube theme) | 'system' (follow OS)
+$config['mailbody_dark_default'] = 'off';
+
+// DarkReader theme tuning (applied to both dark and light modes):
+$config['mailbody_dark_brightness'] = 100;  // 0..200
+$config['mailbody_dark_contrast']   = 90;   // 0..200
+$config['mailbody_dark_grayscale']  = 0;    // 0..100
+$config['mailbody_dark_sepia']      = 0;    // 0..100

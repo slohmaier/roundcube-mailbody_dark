@@ -1,0 +1,19 @@
+{
+    "name": "slohmaier/mailbody_dark",
+    "type": "roundcube-plugin",
+    "description": "Toggle DarkReader-based dark/light rendering of the HTML mail body in Roundcube (Elastic skin), without touching the rest of the UI.",
+    "keywords": ["roundcube", "plugin", "darkreader", "dark-mode", "elastic", "webmail"],
+    "homepage": "https://github.com/slohmaier/roundcube-mailbody_dark",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Stefan Lohmaier",
+            "email": "stefan@slohmaier.de",
+            "homepage": "https://slohmaier.de"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "roundcube/plugin-installer": ">=0.3.0"
+    }
+}

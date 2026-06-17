@@ -1,0 +1,22 @@
+/* mailbody_dark — Toolbar-Button-Icon (Mond/Sonne), Elastic FontAwesome "Icons" */
+.toolbar a.button.mailbodydark:before,
+a.button.mailbodydark:before {
+    display: block;
+    float: left;
+    margin: 0 .25rem 0 0;
+    width: 1.18em;
+    height: 1em;
+    font-size: 1.25em;
+    font-family: 'Icons';
+    font-style: normal;
+    font-weight: 900;
+    text-align: center;
+    content: "\f186"; /* fa-moon */
+}
+/* Hell-Modus -> Sonne */
+a.button.mailbodydark.mode-light:before {
+    content: "\f185"; /* fa-sun */
+}
+/* aktiv (Dunkel/Hell an) eingefaerbt */
+a.button.mailbodydark.active:before            { color: #ffc107; } /* amber (Mond) */
+a.button.mailbodydark.mode-light.active:before { color: #03a9f4; } /* blau (Sonne) */
