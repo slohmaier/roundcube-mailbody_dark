@@ -1,0 +1,4 @@
+# generated screenshots
+screenshots/out/
+# Playwright
+screenshots/node_modules/

@@ -1,0 +1,36 @@
+# Reproducible test stack for mailbody_dark.
+# Brings up Roundcube + Greenmail (dummy IMAP/SMTP) and mounts THIS plugin repo
+# directly as a Roundcube plugin, so the mail-body dark/light toggle can be
+# demoed and screenshotted without any live data.
+#
+#   cd test-stack && docker compose up -d && ./setup.sh
+#   -> http://127.0.0.1:8098   Login: test / test
+#
+# All ports bind to 127.0.0.1 only (no LAN exposure).
+networks:
+  md:
+
+services:
+  rc-md-imap:
+    image: greenmail/standalone:latest
+    networks: [md]
+    ports: ["127.0.0.1:3144:3143", "127.0.0.1:3026:3025"]
+    environment:
+      - GREENMAIL_OPTS=-Dgreenmail.setup.test.all -Dgreenmail.hostname=0.0.0.0 -Dgreenmail.auth.disabled -Dgreenmail.verbose
+
+  rc-md-roundcube:
+    image: roundcube/roundcubemail:latest
+    networks: [md]
+    ports: ["127.0.0.1:8098:80"]
+    environment:
+      - ROUNDCUBEMAIL_DB_TYPE=sqlite
+      - ROUNDCUBEMAIL_DEFAULT_HOST=rc-md-imap
+      - ROUNDCUBEMAIL_DEFAULT_PORT=3143
+      - ROUNDCUBEMAIL_SMTP_SERVER=rc-md-imap
+      - ROUNDCUBEMAIL_SMTP_PORT=3025
+      - ROUNDCUBEMAIL_PLUGINS=mailbody_dark
+      - ROUNDCUBEMAIL_SKIN=elastic
+    volumes:
+      # This repo is mounted directly as the plugin.
+      - ..:/var/www/html/plugins/mailbody_dark:ro
+    depends_on: [rc-md-imap]

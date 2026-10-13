@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.1 — 2026-10-13
+
+- English-only code comments and docs.
+- Added README screenshots (Off / Dark / Light and the settings block) plus a
+  reproducible Docker test stack (`test-stack/`) with Playwright capture.
+- Published on Packagist as `slohmaier/mailbody_dark`.
+
 ## 1.0.0 — 2026-06-17
 
 Initial release.

@@ -1,0 +1,9 @@
+{
+  "name": "mailbody-dark-screenshots",
+  "private": true,
+  "type": "module",
+  "description": "Capture Roundcube screenshots of the mailbody_dark plugin",
+  "dependencies": {
+    "playwright": "^1.48.0"
+  }
+}

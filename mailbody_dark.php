@@ -1,19 +1,19 @@
 <?php
 /**
- * mailbody_dark — DarkReader-Dunkel-/Hellmodus fuer den Mail-Body.
+ * mailbody_dark — DarkReader dark/light mode for the mail body.
  *
- * Button in der Mail-Toolbar (Roundcube-Command 'plugin.mailbody_dark.toggle'),
- * cyclt Aus -> Dunkel -> Hell. DarkReader laeuft IM Message-Frame
- * (#messagecontframe, action=preview/show) und faerbt nur den Mail-Inhalt,
- * nicht die Roundcube-UI. Modus persistiert per localStorage; Standard +
- * Theme-Tuning pro User unter Einstellungen > Einstellungen >
- * Nachrichtendarstellung (Block "Dunkelmodus fuer Mail-Inhalt").
+ * Button in the mail toolbar (Roundcube command 'plugin.mailbody_dark.toggle'),
+ * cycles Off -> Dark -> Light. DarkReader runs INSIDE the message frame
+ * (#messagecontframe, action=preview/show) and only colours the mail content,
+ * not the Roundcube UI. The mode persists via localStorage; the default +
+ * theme tuning are per user under Settings > Preferences >
+ * Mailbox View (block "Dark mode for mail content").
  *
- * Doku/Hintergrund: README.md. Roundcube 1.7.1, Elastic-Skin.
+ * Docs/background: README.md. Roundcube 1.7.1, Elastic skin.
  */
 class mailbody_dark extends rcube_plugin
 {
-    // KEIN $task -> laeuft auf 'mail' (Button) UND 'settings' (Prefs)
+    // NO $task -> runs on 'mail' (button) AND 'settings' (prefs)
 
     private $defaults = [
         'mailbody_dark_default'    => 'off',
@@ -65,7 +65,7 @@ class mailbody_dark extends rcube_plugin
 
         $rcmail = rcube::get_instance();
 
-        // Standardmodus
+        // Default mode
         $select = new html_select(['name' => '_mailbody_dark_default', 'id' => 'mailbody_dark_default']);
         $select->add($this->gettext('modeoff'),    'off');
         $select->add($this->gettext('modedark'),   'dark');
@@ -80,7 +80,7 @@ class mailbody_dark extends rcube_plugin
             ],
         ];
 
-        // Numerische Theme-Knoepfe
+        // Numeric theme knobs
         $nums = [
             'mailbody_dark_brightness' => ['label' => 'brightness', 'min' => 0, 'max' => 200, 'step' => 5],
             'mailbody_dark_contrast'   => ['label' => 'contrast',   'min' => 0, 'max' => 200, 'step' => 5],

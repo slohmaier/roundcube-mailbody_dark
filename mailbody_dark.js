@@ -1,16 +1,16 @@
 /**
- * mailbody_dark — DarkReader fuer den Mail-Body (Roundcube 1.7 / Elastic).
+ * mailbody_dark — DarkReader for the mail body (Roundcube 1.7 / Elastic).
  *
- * Drei Rollen, eine Datei:
- *  - Parent (Liste/Preview): registriert den Toolbar-Command, steuert den Modus.
- *  - Preview-Frame (#messagecontframe, env.framed, action=preview/show): wendet
- *    DarkReader auf SEIN eigenes Dokument an -> faerbt nur den Mail-Inhalt.
- *  - extwin (Mail im eigenen Fenster): Button + Body im selben Dokument.
+ * Three roles, one file:
+ *  - Parent (list/preview): registers the toolbar command, controls the mode.
+ *  - Preview frame (#messagecontframe, env.framed, action=preview/show): applies
+ *    DarkReader to ITS OWN document -> colours only the mail content.
+ *  - extwin (mail in its own window): button + body in the same document.
  *
- * Modus in localStorage ('off'|'dark'|'light'|'auto'|'system'); Default +
- * Theme-Tuning (brightness/contrast/grayscale/sepia) kommen aus rcmail.env
- * (Server-Preferences). localStorage ist same-origin -> Parent und Frame teilen
- * die Wahl; 'storage'-Event re-applied den Frame.
+ * Mode in localStorage ('off'|'dark'|'light'|'auto'|'system'); the default +
+ * theme tuning (brightness/contrast/grayscale/sepia) come from rcmail.env
+ * (server preferences). localStorage is same-origin -> parent and frame share
+ * the choice; the 'storage' event re-applies it in the frame.
  */
 (function () {
     if (!window.rcmail) return;
@@ -55,7 +55,7 @@
         return m;
     }
 
-    // DarkReader-URL aus dem geladenen Plugin-Script ableiten (static.php-Prefix)
+    // Derive the DarkReader URL from the loaded plugin script (static.php prefix)
     function darkreaderSrc(doc) {
         var cands = [];
         try { if (doc) cands.push(doc); } catch (e) {}
@@ -131,7 +131,7 @@
         return false;
     }
 
-    // Frame reagiert auf Modus-Aenderung des Parents + OS-Theme-Wechsel (system-Modus)
+    // The frame reacts to the parent's mode change + OS theme change (system mode)
     function wireFrameListeners() {
         try {
             window.addEventListener('storage', function (e) {

@@ -1,11 +1,31 @@
 # mailbody_dark
 
+[![Packagist version](https://img.shields.io/packagist/v/slohmaier/mailbody_dark.svg)](https://packagist.org/packages/slohmaier/mailbody_dark)
+
 A [Roundcube](https://roundcube.net/) plugin that renders the **HTML mail body**
 in dark or light mode via [DarkReader](https://darkreader.org/) — without
 re-colouring the rest of the Roundcube UI. Think of it as the DarkReader browser
 add-on, but scoped to just the message content.
 
 Tested with Roundcube 1.7.x and the **Elastic** skin.
+
+## Screenshots
+
+Mail body, Off:
+
+![Mail body in Off mode](docs/screenshots/mailbody-off.png)
+
+Mail body, Dark:
+
+![Mail body in Dark mode](docs/screenshots/mailbody-dark.png)
+
+Mail body, Light:
+
+![Mail body in Light mode](docs/screenshots/mailbody-light.png)
+
+Settings — Mailbox View → *Dark mode for mail content*:
+
+![Settings for dark mode for mail content](docs/screenshots/settings-mailbody.png)
 
 ## Features
 
@@ -87,6 +107,20 @@ A few things that are easy to miss when building toolbar plugins for Elastic:
 - The message preview loads with `action=preview` (not `show`) — include
   per-message assets for both actions.
 - Plugin assets are served under `/static.php/plugins/...`, not `/plugins/...`.
+
+## Development / test stack
+
+A throwaway Docker environment (Roundcube + Greenmail) lives in
+[`test-stack/`](test-stack/) and mounts this repo directly as a plugin, so you can
+try the toggle against a synthetic HTML newsletter — no live data:
+
+```bash
+cd test-stack
+./start.sh                 # -> http://127.0.0.1:8098  (login: test / test)
+```
+
+Screenshots are generated with Playwright, see
+[`test-stack/README.md`](test-stack/README.md).
 
 ## Third-party
 
