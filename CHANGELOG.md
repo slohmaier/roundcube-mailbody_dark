@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2 — 2026-10-13
+
+- Moved `roundcube/plugin-installer` to `require-dev` so requiring the plugin no
+  longer pulls the whole `roundcube/roundcubemail` dependency tree. The plugin
+  type is still handled by the installer in the Roundcube root project.
+
 ## 1.0.1 — 2026-10-13
 
 - English-only code comments and docs.
